@@ -3,36 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gyroscope Steering</title>
-    <style>
-        #steering-wheel {
-            width: 100px;
-            height: 100px;
-            background-color: #3498db;
-            border-radius: 50%;
-            margin: 50px auto;
-        }
-    </style>
+    <title>Race Car Controller</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    window.addEventListener('deviceorientation',handleOrientation);
+    function handleOrientation(event){
+        const rotation=event.gamma;
+        updateSteering(rotation);
+    }
+    function updateSteering(rotation){
+        const steeringWheel = document.getElementById('steering-wheel');
+        steeringWheel.style.transform=`rotate(${rotation}deg)`;
+    }
+</script>
 </head>
 <body>
-    <div id="steering-wheel"></div>
-
-    <script>
-        window.addEventListener('deviceorientation', handleOrientation);
-
-        function handleOrientation(event) {
-            // Rotation around the z-axis (gamma) can be used for steering
-            const rotation = event.gamma;
-
-            // Use the rotation value to control your game (update car angle, etc.)
-            updateSteering(rotation);
-        }
-
-        function updateSteering(rotation) {
-            const steeringWheel = document.getElementById('steering-wheel');
-            // Adjust the rotation of your steering wheel element based on the gyroscope input
-            steeringWheel.style.transform = `rotate(${rotation}deg)`;
-        }
-    </script>
+    <div id="steering-wheel"><img src="arrow.png" alt="Steering Wheel"></div>
 </body>
-</html>
