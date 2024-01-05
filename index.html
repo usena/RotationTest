@@ -10,6 +10,7 @@
     window.addEventListener('deviceorientation',handleOrientation);
     function handleOrientation(event){
         const rotation=event.gamma;
+        $("#report_detail").html("Angle:"+rotation);
         updateSteering(rotation);
     }
     function updateSteering(rotation){
@@ -19,5 +20,6 @@
 </script>
 </head>
 <body>
-    <div id="steering-wheel"><img src="arrow.png" alt="Steering Wheel"></div>
+    <div id="report_detail"></div>
+    <div id="steering-wheel"><img src="D:\CS_Major\Python\RacingGame\image\arrow.png" alt="Steering Wheel" style="width:250px;height:250px;"></div>
 </body>
